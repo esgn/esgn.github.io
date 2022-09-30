@@ -23,7 +23,7 @@ email:
 description: >- # this means to ignore newlines until "baseurl:"
   Information I found useful at some point and which may be of use to others. Programming, Networking, DevSecOps, and other tech related topics.
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "https://esgn.github.io/posts"
+url: "https://esgn.github.io"
 twitter_username: 
 github_username:  esgn
 show_excerpts: True
