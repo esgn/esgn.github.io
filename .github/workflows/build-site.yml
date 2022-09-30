@@ -1,5 +1,11 @@
 name: Build and deploy Jekyll site to GitHub Pages
 
+permissions:
+  contents: read
+  pages: write
+  deployments: write
+  id-token: write
+  
 on:
   push:
     branches:
@@ -24,4 +30,11 @@ jobs:
         with:                                
           token: ${{ secrets.GITHUB_TOKEN }}
           target_branch: gh-pages
-      - uses: actions/deploy-pages@v1
+          
+  deploy:
+    runs-on: ubuntu-latest
+    needs: github-pages
+    steps:
+      - name: Deploy gh-pages
+        id: deployment
+        uses: actions/deploy-pages@v1
