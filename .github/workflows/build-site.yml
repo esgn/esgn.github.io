@@ -26,4 +26,5 @@ jobs:
           target_branch: gh-pages
       - uses: JamesIves/github-pages-deploy-action@v4
         with:
+          folder: .
           clean: true
