@@ -24,3 +24,6 @@ jobs:
         with:                                
           token: ${{ secrets.GITHUB_TOKEN }}
           target_branch: gh-pages
+      - uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          clean: true
