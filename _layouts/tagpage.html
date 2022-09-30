@@ -1,0 +1,23 @@
+---
+layout: default
+---
+
+<div class="post">
+  <h1>Tag: {{ page.tag }}</h1>
+
+  <div>
+    <ul>
+      {% for post in site.posts %}
+      {% if post.tags contains page.tag %}
+      <li><a href="{{ post.url }}">{{ post.title }}</a> ({{ post.date | date_to_string }})<br>
+        {% endif %}
+        {% endfor %}
+    </ul>
+  </div>
+
+  <h2>All tags</h2>
+  {% assign tags = site.posts | map: "tags" | compact | uniq | sort  %}
+  {% for tag in tags %}
+    <a href="/tag/{{ tag }}"><code><small>{{ tag }}</small></code></a>
+  {% endfor %}
+</div>

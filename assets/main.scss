@@ -1,0 +1,15 @@
+---
+---
+
+@import "minima";
+
+// imported from jekyll/minima master branch
+// looks better at least for post meta
+body {
+  font: 400 16px/1.5 -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", "Segoe UI Emoji", "Segoe UI Symbol", "Apple Color Emoji", Roboto, Helvetica, Arial, sans-serif;
+} 
+
+// increase margin top for post titles
+.post-content {
+  h1, h2, h3, h4, h5, h6 { margin-top: 30px }
+}
