@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Ansible naming conventions | esgn posts</title>
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="Ansible naming conventions" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="A quick look at what can be found in Ansible related documentation regarding naming conventions (roles, tasks, …)" />
+<meta property="og:description" content="A quick look at what can be found in Ansible related documentation regarding naming conventions (roles, tasks, …)" />
+<link rel="canonical" href="https://esgn.github.io/2022/09/20/ansible-naming-conventions.html" />
+<meta property="og:url" content="https://esgn.github.io/2022/09/20/ansible-naming-conventions.html" />
+<meta property="og:site_name" content="esgn posts" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2022-09-20T13:14:43+00:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Ansible naming conventions" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2022-09-20T13:14:43+00:00","datePublished":"2022-09-20T13:14:43+00:00","description":"A quick look at what can be found in Ansible related documentation regarding naming conventions (roles, tasks, …)","headline":"Ansible naming conventions","mainEntityOfPage":{"@type":"WebPage","@id":"https://esgn.github.io/2022/09/20/ansible-naming-conventions.html"},"url":"https://esgn.github.io/2022/09/20/ansible-naming-conventions.html"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="https://esgn.github.io/feed.xml" title="esgn posts" /></head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">esgn posts</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/about/">About</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Ansible naming conventions</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2022-09-20T13:14:43+00:00" itemprop="datePublished">Sep 20, 2022
+      </time><!-- Add tags to post : start -->
+      
+      <span itemprop="keywords">
+        
+        <a href="/tag/ansible"><code><small>ansible</small></code></a>
+        
+        <a href="/tag/coding-conventions"><code><small>coding-conventions</small></code></a>
+        
+      </span>
+      
+      <!-- Add tags to post : end -->
+    </p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <p>Having understood the default <a href="https://docs.ansible.com/ansible/2.8/user_guide/playbooks_best_practices.html#directory-layout" target="_blank">Ansible directory layout</a> and discovered ansible-galaxy can create part of this layout automatically (e.g for a role: <code class="language-plaintext highlighter-rouge">ansible-galaxy init test-role</code>), remains the question of naming conventions in Ansible.<br />
+<br />
+Here’s what could be found in Ansible related documentation:</p>
+
+<ul>
+  <li>Roles name
+    <ul>
+      <li>From Ansible Galaxy documentation (<a href="https://galaxy.ansible.com/docs/contributing/creating_role.html#role-names" target="_blank">source</a>): <code class="language-plaintext highlighter-rouge">Role names are limited to lowercase word characters (i.e., a-z, 0-9) and ‘_’. No special characters are allowed, including ‘.’, ‘-‘, and space</code>.</li>
+      <li>From Ansible devel documentation (<a href="https://docs.ansible.com/ansible/devel/dev_guide/developing_collections_structure.html#roles-directory" target="_blank">source</a>) as spotted by Ansible Lint documentation (<a href="https://ansible-lint.readthedocs.io/rules/role-name/" target="_blank">source</a>): <code class="language-plaintext highlighter-rouge">Role names are now limited to contain only lowercase alphanumeric characters, plus _ and start with an alpha character</code>.<br />
+<br /></li>
+    </ul>
+  </li>
+  <li>Variables name:
+    <ul>
+      <li>From Ansible documentation (<a href="https://docs.ansible.com/ansible/latest/user_guide/playbooks_variables.html#creating-valid-variable-names" target="_blank">source</a>): <code class="language-plaintext highlighter-rouge">A variable name can only include letters, numbers, and underscores. Python keywords or playbook keywords are not valid variable names. A variable name cannot begin with a number. Variable names can begin with an underscore. In many programming languages, variables that begin with an underscore are private. This is not true in Ansible</code>.</li>
+      <li>From Ansible lint documentation (<a href="https://ansible-lint.readthedocs.io/rules/var-naming/" target="_blank">source</a>): <code class="language-plaintext highlighter-rouge">All variables should be named using only lowercase and underscores</code>.</li>
+      <li>Regarding variable names many third party sources recommend to prepend variable used in a role with the role name (e.g <code class="language-plaintext highlighter-rouge">apache_max_keepalive</code>).<br />
+<br /></li>
+    </ul>
+  </li>
+  <li>Yaml files name:
+    <ul>
+      <li>For tasks, playbook and other yaml files, I was not able to find a proper naming convention.</li>
+      <li>From Ansible lint documentation (<a href="https://ansible-lint.readthedocs.io/rules/playbook-extension/" target="_blank">source</a>) <code class="language-plaintext highlighter-rouge">Playbooks should have the ".yml" or ".yaml" extension</code>.</li>
+      <li>From this Ansible documentation example (<a href="https://docs.ansible.com/ansible/latest/user_guide/playbooks_intro.html#ansible-lint" target="_blank">source</a>), it seems playbook file names may include a <code class="language-plaintext highlighter-rouge">-</code> 🤔<br />
+<br /></li>
+    </ul>
+  </li>
+  <li><code class="language-plaintext highlighter-rouge">name:</code> keys in tasks and playbooks yaml files:
+    <ul>
+      <li>From Ansible Lint (<a href="https://ansible-lint.readthedocs.io/rules/name/" target="_blank">source</a>): <code class="language-plaintext highlighter-rouge">All names should start with an uppercase letter for languages that support it</code>. Here <code class="language-plaintext highlighter-rouge">language</code> obviously means natural human languages (english, german, french, …).
+<br /></li>
+    </ul>
+  </li>
+</ul>
+
+<p>Sticking to <a href="https://en.wikipedia.org/wiki/Snake_case" target="_blank">snake-case</a> should be the best solution when working with Ansible. No surprises for a Python project.</p>
+
+  </div><a class="u-url" href="/2022/09/20/ansible-naming-conventions.html" hidden></a>
+</article>
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <!--h2 class="footer-heading">esgn posts</h2-->
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <!-- ul class="contact-list">
+          <li class="p-name">esgn posts</li></ul -->
+        <a href="/feed.xml">
+          <svg class="svg-icon" style="fill:#f66a0a">
+            <use xlink:href="/assets/minima-social-icons.svg#rss"></use>
+          </svg><span>Subscribe via RSS</span>
+        </a>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/esgn"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">esgn</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>Information I found useful at some point and which may be of use to others. Programming, Networking, DevSecOps, and other tech related topics.</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer></body>
+
+</html>
