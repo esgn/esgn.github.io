@@ -124,7 +124,7 @@ tag_list = []
 tag_dir = "tag"
 posts_dir = "_posts"
 md_ext = ('.md', '.markdown')
-rgxp = r'---(?:.|\n)*^tags\s*:(.*)$(?:.|\n)*---'
+rgxp = r'---[\s\S]*?tags:(.*)[\s\S]*?---'
 
 # wipe up and recreate tag dir
 shutil.rmtree(tag_dir, ignore_errors=True)
